@@ -24,13 +24,13 @@ defmodule Paironauts.AcceptanceTest do
       session
       |> visit("/")
       |> click(css("#mob"))
-      |> assert_has(css("#meet"))
+      |> assert_has(css("#meet", visible: true))
     end
 
     # third user should not be added to the same jitsi
     test "when two users choose 'pair' from the homepage, they are added to a Jitsi", %{session: session1} do
       session1
-      |> visit("/") 
+      |> visit("/")
       |> click(css("#pair"))
       |> has_text?("Waiting for pair partner")
       |> assert
